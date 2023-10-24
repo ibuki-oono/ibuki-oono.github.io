@@ -1,0 +1,69 @@
+@charset "utf-8";
+h1 {
+  	color: rgba(37, 40, 34, 0.5);			/* 見出しテキストの色を指定する */
+	size: 35pt;
+}
+h2 {
+    color: black;
+    size: 30pt;
+}
+h3 {
+    color: black;
+    size: 25pt;
+}
+h4 {
+    color: black;
+    size: 20pt;
+}
+h5 {
+    color: black;
+    size: 18pt;
+}
+hr{
+    color: rgb(164, 134, 36);
+    height: 6px;
+}
+body {
+    color: black;
+    background-color: green;
+}
+.top {
+    padding: auto;
+}
+span.impress {
+    color: rgb(255, 187, 0);
+}
+
+.scr_img {
+    display:flex;
+    overflow-x: scroll;
+}
+.scr_img img {
+    height:250pt;
+    margin: 15pt;
+}
+.scr_img::-webkit-scrollbar {
+    height: 14px; /* スクロールバーの高さ */
+}
+   
+.scr_img::-webkit-scrollbar-thumb {
+    background: #c7c8c9; /* ツマミの色 */
+    border-radius: 7px; /* ツマミ両端の丸み */
+}
+.scr_img::-webkit-scrollbar-track {
+    background: rgb(65, 62, 62); /* トラックの色 */
+    border-radius: 7px; /* トラック両端の丸み */
+}
+
+/* --YouTubeサイズ調整-- */
+.video {
+    position: relative;
+    padding: 10px 0 56.25%;
+    overflow: hidden;
+}
+    
+.video iframe {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
