@@ -1,0 +1,130 @@
+[
+  {
+    "slug": "catchrobo-2026",
+    "title": "キャチロボ2026",
+    "subtitle": "サメサメ工業",
+    "date": "2026-09-26",
+    "category": "ロボコン",
+    "summary": "パラレルリンクと、VRで操るロボット。",
+    "image": "https://blog.rogiken.org/wp-content/uploads/2026/09/IMG_20260911_153927-1-1024x677.jpg",
+    "image_alt": "サメサメ工業のキャチロボ2026出場機体",
+    "source": "https://blog.rogiken.org/blog/2026/09/26/【キャチロボ2026】サメサメ工業-ロボット紹介-結/",
+    "source_title": "〖キャチロボ2026〗サメサメ工業 ロボット紹介 & 結果報告",
+    "tags": [
+      "パラレルリンク",
+      "モーター制御",
+      "VR"
+    ],
+    "sections": [
+      {
+        "title": "つくったもの",
+        "text": "チーム「サメサメ工業」で製作した、キャチロボ2026の出場機体です。前年の5節リンクを発展させ、高さを変える部分にもパラレル構造を採用しました。"
+      },
+      {
+        "title": "機構と制御",
+        "text": "リンクの関節部品にはMJF方式で造形したPA12を採用。前年の部品強度の課題を見直しました。モーターのゲインも調整し、ワークを持ったときの動作の安定を目指しています。"
+      },
+      {
+        "title": "チームで広げた操作方法",
+        "text": "ibukiが機体・回路・ロボット側の制御を、21-horieがVRなどの上位側の開発を担当。WebXRとROS 2をつなぎ、仮想空間のワークを動かして実機を操る操作にも取り組みました。"
+      }
+    ],
+    "display_image": "image/projects/catchrobo-2026-cutout.png"
+  },
+  {
+    "slug": "tsukuba-2025",
+    "title": "つくばチャレンジ2025",
+    "subtitle": "UniLab / 自動走行ロボット",
+    "date": "2025-12-29",
+    "category": "自動走行",
+    "summary": "LiDARとROS 2で、屋外の自動走行に挑戦。",
+    "image": "https://blog.rogiken.org/wp-content/uploads/2025/12/IMG_20251204_163826-640x1024.jpg",
+    "image_alt": "つくばチャレンジ2025に向けて製作した自動走行ロボット",
+    "source": "https://blog.rogiken.org/blog/2025/12/29/つくばチャレンジ2025に参加してきました！/",
+    "source_title": "つくばチャレンジ2025に参加してきました！",
+    "tags": [
+      "ROS 2",
+      "LiDAR",
+      "Nav2"
+    ],
+    "sections": [
+      {
+        "title": "つくったもの",
+        "text": "ロボット技術研究会のUniLabで、つくばチャレンジ2025に参加。大径の車輪を使った差動二輪の機体に、2D LiDARとノートPCを搭載した自動走行ロボットです。"
+      },
+      {
+        "title": "自動走行のしくみ",
+        "text": "ROS 2 Humbleを使い、slam_toolboxで地図を作成し、Nav2で走行させました。車輪の駆動にはVESCを使用。M5Stackとmicro-ROSで、上位の処理とモーターの制御をつないでいます。"
+      },
+      {
+        "title": "走らせて分かったこと",
+        "text": "大会の公式記録は0.3m。屋外の傾斜や振動に対して、2D LiDARだけで自己位置を推定する難しさが課題になりました。自作機を現地で動かし、次の改善点を見つけた挑戦です。"
+      }
+    ],
+    "display_image": "image/projects/tsukuba-2025-cutout.png"
+  },
+  {
+    "slug": "catchrobo-2025",
+    "title": "キャチロボ2025",
+    "subtitle": "（株）サメサメ工業",
+    "date": "2025-10-09",
+    "category": "ロボコン",
+    "summary": "大きな5節リンクに、つくりたい機構を詰め込んで。",
+    "image": "https://blog.rogiken.org/wp-content/uploads/2025/09/IMG_20250920_083334071-1024x559.jpg",
+    "image_alt": "カーボンパイプの5節リンクを備えたキャチロボ2025の機体",
+    "source": "https://blog.rogiken.org/blog/2025/10/09/【キャチロボ2025】株サメサメ工業-ロボット紹介/",
+    "source_title": "〖キャチロボ2025〗(株)サメサメ工業 ロボット紹介 & 結果報告",
+    "tags": [
+      "5節リンク",
+      "機械設計",
+      "ROS 2"
+    ],
+    "sections": [
+      {
+        "title": "つくったもの",
+        "text": "21-horieと一緒に製作した、初めてのキャチロボ出場機体です。ibukiは機械設計・電装・低レイヤーの制御を、21-horieはROS 2連携や操作画面などを担当しました。"
+      },
+      {
+        "title": "こだわった機構",
+        "text": "特徴は、500mmのカーボンパイプを使った大きな5節リンク。パイプを固定する部品はASAで3Dプリントしました。折りたためる構造は、会場までの運びやすさにもつながっています。"
+      },
+      {
+        "title": "大会でのこと",
+        "text": "予選で1点を獲得し、目標にしていた実機の動作を実現。エキシビションにも参加し、審査員特別賞をいただきました。思い描いた機構を、実際の競技の場で動かした一台です。"
+      }
+    ],
+    "display_image": "image/projects/catchrobo-2025-cutout.png"
+  },
+  {
+    "slug": "golf-robot",
+    "title": "自律型ゴルフロボット",
+    "subtitle": "ゴルフサメサメ",
+    "date": "2025-04-10",
+    "category": "自律ロボット",
+    "summary": "ボールを見つけて、自分で打つゴルフロボット。",
+    "image": "https://blog.rogiken.org/wp-content/uploads/2025/03/IMG_20241109_104428817_MF_PORTRAIT2-1024x467.jpg",
+    "image_alt": "LiDARとカメラ、ボールを打つクラブを搭載したゴルフロボット",
+    "source": "https://blog.rogiken.org/blog/2025/04/10/完全自動でゴルフロボット/",
+    "source_title": "完全自動でゴルフロボット",
+    "tags": [
+      "ROS 2",
+      "YOLO",
+      "LiDAR"
+    ],
+    "sections": [
+      {
+        "title": "つくったもの",
+        "text": "ロボコンやまなしの自律型ゴルフロボット競技に向けて製作した機体です。外から操縦せず、ゴルフボールとゴールを自分で認識して、クラブでボールを打ちます。"
+      },
+      {
+        "title": "見つけて、動いて、打つ",
+        "text": "カメラの画像からYOLOでボールを検出し、2D LiDARでゴールのポールを捉えます。ROS 2で処理をつなぎ、自作の車輪と駆動回路、サーボで動くクラブを組み合わせました。"
+      },
+      {
+        "title": "つくって分かったこと",
+        "text": "認識は安定した一方、画像処理の重さによる遅延と、クラブの飛距離が課題に。大会は5台中4位でした。処理能力と機構の両方を見直すきっかけになったロボットです。"
+      }
+    ],
+    "display_image": "image/projects/golf-robot-cutout.png"
+  }
+]
