@@ -17,19 +17,49 @@
     ],
     "sections": [
       {
-        "title": "つくったもの",
-        "text": "チーム「サメサメ工業」で製作した、キャチロボ2026の出場機体です。前年の5節リンクを発展させ、高さを変える部分にもパラレル構造を採用しました。"
+        "title": "大会に向けた機体づくり",
+        "text": "前年に続き、21-horieとチーム「サメサメ工業」でキャチロボに参加しました。2026年のワークはチップスター。私は機械、回路、ロボット側の制御を担当し、21-horieはROS 2の上位制御やVR操作を担当しました。"
       },
       {
-        "title": "機構と制御",
-        "text": "リンクの関節部品にはMJF方式で造形したPA12を採用。前年の部品強度の課題を見直しました。モーターのゲインも調整し、ワークを持ったときの動作の安定を目指しています。"
+        "title": "5節リンクと高さ方向の機構",
+        "text": "前年の5節リンクを引き継ぎ、高さを変える部分にもパラレル構造を採用しました。展開すると大きく動く一方、畳んだ状態ではコンパクトに収まります。荷重によってリンクが変形する課題にはモーターのゲイン調整で対応しました。"
       },
       {
-        "title": "チームで広げた操作方法",
-        "text": "ibukiが機体・回路・ロボット側の制御を、21-horieがVRなどの上位側の開発を担当。WebXRとROS 2をつなぎ、仮想空間のワークを動かして実機を操る操作にも取り組みました。"
+        "title": "壊れにくい関節と把持機構",
+        "text": "前年に破損が続いたリンクの関節は、積層方向による強度差を考慮してMJF方式のPA12部品に変更。本番でも破損せずに動作しました。エンドエフェクタは傘歯車を使い、ワークを包み込むように引き寄せて把持します。周囲のワークを弾きにくく、容器を潰しにくい構造を狙いました。"
+      },
+      {
+        "title": "制御基板とVR操作",
+        "text": "STM32を使った制御基板を自作し、CANでモーターを制御。W5500を使ったEthernet経由のUDP通信で上位側と接続しました。21-horieが担当した操作系ではWebXRとROS 2を連携し、仮想フィールドのワークを動かして実機を操作できるようにしました。"
+      },
+      {
+        "title": "大会での結果",
+        "text": "予選は1回戦で6点、2回戦で4点を獲得し、エキシビションにも選出されました。エキシビションではVR操作で実機を動かして得点し、審査員特別賞を受賞。前年の課題だった関節強度と動作を改善し、新しい操作方法も披露できました。"
       }
     ],
-    "display_image": "image/projects/catchrobo-2026-cutout.png"
+    "display_image": "image/projects/catchrobo-2026-cutout.png",
+    "gallery": [
+      {
+        "image": "image/projects/rogiken/catchrobo-2026-1.jpg",
+        "caption": "大会機体の全体像"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2026-2.jpg",
+        "caption": "MJF方式で製作したリンク関節"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2026-3.jpg",
+        "caption": "ヨー軸の機構"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2026-4.png",
+        "caption": "ワークを把持するエンドエフェクタの構造"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2026-5.jpg",
+        "caption": "自作した制御基板"
+      }
+    ]
   },
   {
     "slug": "tsukuba-2025",
@@ -49,19 +79,41 @@
     ],
     "sections": [
       {
-        "title": "つくったもの",
-        "text": "ロボット技術研究会のUniLabで、つくばチャレンジ2025に参加。大径の車輪を使った差動二輪の機体に、2D LiDARとノートPCを搭載した自動走行ロボットです。"
+        "title": "屋外を走るロボットをつくる",
+        "text": "ロボット技術研究会のUniLabで、つくばチャレンジ2025に参加しました。自作機が屋外の道路を自律走行することを目標に、車体から走行ソフトウェアまで準備しました。"
       },
       {
-        "title": "自動走行のしくみ",
-        "text": "ROS 2 Humbleを使い、slam_toolboxで地図を作成し、Nav2で走行させました。車輪の駆動にはVESCを使用。M5Stackとmicro-ROSで、上位の処理とモーターの制御をつないでいます。"
+        "title": "段差を越える足回り",
+        "text": "直径240mmのインホイールモーターを使った差動二輪を採用。アルミフレームにMDFや3Dプリント部品を組み合わせ、2D LiDAR、ノートPC、IMUを搭載しました。機体はバッテリーを含め約15kgです。"
       },
       {
-        "title": "走らせて分かったこと",
-        "text": "大会の公式記録は0.3m。屋外の傾斜や振動に対して、2D LiDARだけで自己位置を推定する難しさが課題になりました。自作機を現地で動かし、次の改善点を見つけた挑戦です。"
+        "title": "地図作成と走行制御",
+        "text": "ROS 2 Humble上でslam_toolboxによる地図作成とNav2によるナビゲーションを構成。地図上に設定したウェイポイントをたどります。モーターはVESC、姿勢計測にはBNO055を使用し、M5Stackとmicro-ROSを通じて上位側と接続しました。"
+      },
+      {
+        "title": "現地で分かった課題と結果",
+        "text": "自動走行の公式記録は0.3mでした。傾斜や路面の振動によって2D LiDARの見え方が変わり、屋内ではできていた自己位置推定が現地で不安定に。3D LiDARの活用やカメラによる補正、計算能力と準備期間の確保が次の課題になりました。"
       }
     ],
-    "display_image": "image/projects/tsukuba-2025-cutout.png"
+    "display_image": "image/projects/tsukuba-2025-cutout.png",
+    "gallery": [
+      {
+        "image": "image/projects/rogiken/tsukuba-2025-1.jpg",
+        "caption": "自動走行ロボットの機体"
+      },
+      {
+        "image": "image/projects/rogiken/tsukuba-2025-2.jpg",
+        "caption": "機体の電装と配線"
+      },
+      {
+        "image": "image/projects/rogiken/tsukuba-2025-3.jpg",
+        "caption": "LiDARを使って作成した地図"
+      },
+      {
+        "image": "image/projects/rogiken/tsukuba-2025-4.jpg",
+        "caption": "つくばチャレンジでの機体"
+      }
+    ]
   },
   {
     "slug": "catchrobo-2025",
@@ -81,19 +133,45 @@
     ],
     "sections": [
       {
-        "title": "つくったもの",
-        "text": "21-horieと一緒に製作した、初めてのキャチロボ出場機体です。ibukiは機械設計・電装・低レイヤーの制御を、21-horieはROS 2連携や操作画面などを担当しました。"
+        "title": "初めてのキャチロボ",
+        "text": "「かっこいいロボットを作りたい」という思いから、21-horieとキャチロボに初挑戦しました。私は機械設計・電装・低レイヤー制御を担当し、21-horieがROS 2連携や操作画面、シミュレーションを担当しました。"
       },
       {
-        "title": "こだわった機構",
-        "text": "特徴は、500mmのカーボンパイプを使った大きな5節リンク。パイプを固定する部品はASAで3Dプリントしました。折りたためる構造は、会場までの運びやすさにもつながっています。"
+        "title": "大きく動いて、畳んで運べる",
+        "text": "直径10mm、長さ500mmのカーボンパイプによる5節リンクで、最大約1mのリーチを確保。パイプはASA製の3Dプリント部品で固定し、ばねで関節を外側に押して不安定な位置を避けました。機体を畳むことでスーツケースに収め、会場まで運搬しました。"
       },
       {
-        "title": "大会でのこと",
-        "text": "予選で1点を獲得し、目標にしていた実機の動作を実現。エキシビションにも参加し、審査員特別賞をいただきました。思い描いた機構を、実際の競技の場で動かした一台です。"
+        "title": "ハンドと電装の設計",
+        "text": "ワーク認識用のUSBカメラをハンドの中央に配置するため、エンドエフェクタの構造を工夫しました。ヨー軸はモーターと内歯車で駆動し、磁気エンコーダーで角度を取得。低レイヤー制御にはM5StackとCANを使い、配線や電源・CANのハブも製作しました。"
+      },
+      {
+        "title": "大会で動かして見えたこと",
+        "text": "長いリンクは根元に大きな負荷がかかり、ASA製の関節部品が割れる課題がありました。当日は部品の交換や組み立ての工夫で対応。予選では1点を獲得して予選敗退となりましたが、エキシビションに選ばれ、審査員特別賞を受賞しました。"
       }
     ],
-    "display_image": "image/projects/catchrobo-2025-cutout.png"
+    "display_image": "image/projects/catchrobo-2025-cutout.png",
+    "gallery": [
+      {
+        "image": "image/projects/rogiken/catchrobo-2025-1.jpg",
+        "caption": "キャチロボ2025の機体"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2025-2.jpg",
+        "caption": "5節リンクの関節"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2025-3.png",
+        "caption": "ヨー軸の構造"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2025-4.jpg",
+        "caption": "エンドエフェクタ"
+      },
+      {
+        "image": "image/projects/rogiken/catchrobo-2025-5.jpg",
+        "caption": "機体の電装"
+      }
+    ]
   },
   {
     "slug": "golf-robot",
@@ -113,18 +191,310 @@
     ],
     "sections": [
       {
-        "title": "つくったもの",
-        "text": "ロボコンやまなしの自律型ゴルフロボット競技に向けて製作した機体です。外から操縦せず、ゴルフボールとゴールを自分で認識して、クラブでボールを打ちます。"
+        "title": "完全自律でボールを打つ",
+        "text": "ロボコンやまなしの自律型ゴルフロボット競技に向けて「ゴルフサメサメ」を製作。外部からの操縦や通信を使わず、ボールとゴールを認識し、移動してクラブで打つ一連の動作に挑戦しました。"
       },
       {
-        "title": "見つけて、動いて、打つ",
-        "text": "カメラの画像からYOLOでボールを検出し、2D LiDARでゴールのポールを捉えます。ROS 2で処理をつなぎ、自作の車輪と駆動回路、サーボで動くクラブを組み合わせました。"
+        "title": "自作の足回りと打球機構",
+        "text": "駆動輪2輪と受動輪1輪の車体を採用し、車輪を3Dプリント部品とアルミで製作。ステッピングモーターはL6470を使った自作のArduino用基板で制御しました。クラブはサーボモーターで振り、打つ強さを調整する構成です。"
       },
       {
-        "title": "つくって分かったこと",
-        "text": "認識は安定した一方、画像処理の重さによる遅延と、クラブの飛距離が課題に。大会は5台中4位でした。処理能力と機構の両方を見直すきっかけになったロボットです。"
+        "title": "カメラとLiDARで認識",
+        "text": "カメラで撮影したゴルフボールをYOLOで検出し、2D LiDARでゴールのポールを検出。ボール画像の撮影とアノテーションにも取り組み、検出結果をROS 2上の処理につなげました。大会ではボールとゴールの認識は比較的安定していました。"
+      },
+      {
+        "title": "大会の結果と改善点",
+        "text": "大会は5台中4位。Raspberry Pi上のYOLO処理には約3秒の遅延があり、検出位置を使うため走行速度を落とす必要がありました。また、クラブの飛距離も不足。認識精度だけでなく、処理速度と打球機構を含めて設計する必要を学びました。"
       }
     ],
-    "display_image": "image/projects/golf-robot-cutout.png"
+    "display_image": "image/projects/golf-robot-cutout.png",
+    "gallery": [
+      {
+        "image": "image/projects/rogiken/golf-robot-1.jpg",
+        "caption": "ゴルフロボットの全体像"
+      },
+      {
+        "image": "image/projects/rogiken/golf-robot-2.png",
+        "caption": "ロボットのハードウェア構成"
+      },
+      {
+        "image": "image/projects/rogiken/golf-robot-3.png",
+        "caption": "自作したArduino用駆動基板"
+      },
+      {
+        "image": "image/projects/rogiken/golf-robot-4.jpg",
+        "caption": "製作したロボット"
+      }
+    ]
+  },
+  {
+    "slug": "phox",
+    "title": "Phox — 郵便受け通知デバイス",
+    "subtitle": "team phantom / iCAN 2024",
+    "date": "2024",
+    "category": "IoT",
+    "summary": "投函を検知し、画像と分類結果を知らせる。",
+    "image": "image/projects/team-phantom/iCAN24_top.png",
+    "image_alt": "Phox — 郵便受け通知デバイスの制作写真",
+    "source": "iCAN24.html",
+    "source_title": "team phantom の制作記録",
+    "tags": [
+      "ESP32-S3",
+      "基板設計",
+      "AWS"
+    ],
+    "sections": [
+      {
+        "title": "郵便受けの中を離れた場所から知る",
+        "text": "郵便受けの開閉を検知し、内部の画像と投函物の種類をメールで知らせるデバイスです。カメラから基板、クラウド上の画像処理と通知まで、一連の仕組みを製作しました。 この作品は、team phantomでの企画から製作まで私が担当しました。"
+      },
+      {
+        "title": "小型のカメラ基板を設計",
+        "text": "ESP32-S3とOV5640カメラを使い、4層のメイン基板を自作。旧基板に比べて面積を約50%削減しました。磁気センサーと測距センサーを備えるドア側のサブモジュールも3cm×2cm以下に収めています。"
+      },
+      {
+        "title": "画像認識からメール通知まで",
+        "text": "撮影画像をAWS S3に保存し、XGBoostを使ったモデルで空・書類・荷物の3種類に分類。開閉、分類結果、バッテリー電圧をメールで知らせます。元の記録では一般的な暗室型郵便受けで約95%の認識精度としていますが、精度は環境に依存します。"
+      },
+      {
+        "title": "大会での結果",
+        "text": "iCAN 2024国内予選で1位、世界大会でThird Prizeを受賞しました。世界大会のThird Prizeは参加全チームに授与されたものです。ハードウェアの小型化とクラウドをつないだシステムを大会で発表しました。"
+      }
+    ],
+    "gallery": [
+      {
+        "image": "image/projects/team-phantom/iCAN24_top.png",
+        "caption": "Phoxの全体像"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN24_MB.jpg",
+        "caption": "製作したメイン基板"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN24_compear.jpg",
+        "caption": "基板サイズの比較"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN24_AWSsystem.png",
+        "caption": "クラウドシステムの構成"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN24_mail_screen-shot.jpg",
+        "caption": "通知メールの画面"
+      }
+    ],
+    "source_kind": "team phantom"
+  },
+  {
+    "slug": "penculu",
+    "title": "PENCULU — 筆圧を測るペン",
+    "subtitle": "team phantom / iCAN 2023",
+    "date": "2023",
+    "category": "電子工作",
+    "summary": "普段の筆記で、筆圧の強さに気づく。",
+    "image": "image/projects/team-phantom/iCAN23_top.jpg",
+    "image_alt": "PENCULU — 筆圧を測るペンの制作写真",
+    "source": "iCAN23.html",
+    "source_title": "team phantom の制作記録",
+    "tags": [
+      "MEMS",
+      "基板設計",
+      "組み込み"
+    ],
+    "sections": [
+      {
+        "title": "筆圧を普段のペンで知る",
+        "text": "ペンだこや芯が折れるほどの筆圧をきっかけに、普段の筆記に近い感覚で筆圧を確認できるペン型デバイスを製作しました。機能を筆圧計測に絞り、小さくシンプルにまとめています。 この作品は、team phantomでの企画から製作まで私が担当しました。"
+      },
+      {
+        "title": "センサーと回路をペンに収める",
+        "text": "ペン先に10mm角の基板に実装したMEMSフォースセンサーを内蔵。ATtiny85で読み取り、筆圧に応じてLEDの表示を変え、強すぎる場合は赤色で知らせます。基板切削と表面実装を使い、マイコンや電池をペン型の筐体に収めました。"
+      },
+      {
+        "title": "小型化と大会の結果",
+        "text": "直径20mmの初期機から14mmの試作機も製作し、動作を確認しました。一方で小型機はコネクタ周辺の固定が弱く、短時間で壊れる課題が残りました。iCAN国内予選は3位、世界大会では入賞に至りませんでした。"
+      }
+    ],
+    "gallery": [
+      {
+        "image": "image/projects/team-phantom/iCAN23_top.jpg",
+        "caption": "PENCULUの外観"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN23_main.jpg",
+        "caption": "ペン型デバイス"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN23_sub.jpg",
+        "caption": "試作したデバイス"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN23_kiban.jpg",
+        "caption": "小型化した基板"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN23_mems.jpg",
+        "caption": "ペン先に組み込むセンサー"
+      }
+    ],
+    "source_kind": "team phantom"
+  },
+  {
+    "slug": "smart-glass",
+    "title": "SG — 字幕生成スマートグラス",
+    "subtitle": "team phantom / スマートグラス",
+    "date": "2023",
+    "category": "ウェアラブル",
+    "summary": "透明ディスプレイに字幕を表示する試作。",
+    "image": "image/projects/team-phantom/CF_SG_top.png",
+    "image_alt": "SG — 字幕生成スマートグラスの制作写真",
+    "source": "cloud-founding.html",
+    "source_title": "team phantom の制作記録",
+    "tags": [
+      "透明有機EL",
+      "基板設計",
+      "Arduino"
+    ],
+    "sections": [
+      {
+        "title": "字幕を表示する眼鏡を目指して",
+        "text": "音声から生成した字幕を表示するスマートグラスを企画し、試作とクラウドファンディングに向けた準備を進めました。元の制作記録では、この事業は休止中とされています。 この作品は、team phantomでの企画から製作まで私が担当しました。"
+      },
+      {
+        "title": "薄型表示と自立動作",
+        "text": "透明な有機ELを使ってレンズ部分を薄くし、表示機能を絞ることで軽量化を目指しました。字幕生成はWi-Fi環境下でスマートフォンを使わずに動作する構想で、Arduino環境での開発にも対応させる計画でした。"
+      },
+      {
+        "title": "試作で見えた課題",
+        "text": "表面実装部品を使った基板の試作には時間がかかり、初号機の製作には約1か月を要しました。透明有機ELやサーバーの費用、基板・筐体の製作体制が継続開発の課題となりました。完成イメージと試作写真を残し、事業は休止しています。"
+      }
+    ],
+    "gallery": [
+      {
+        "image": "image/projects/team-phantom/CF_SG_top.png",
+        "caption": "完成イメージ"
+      },
+      {
+        "image": "image/projects/team-phantom/CF_demo1.jpg",
+        "caption": "スマートグラスの試作"
+      },
+      {
+        "image": "image/projects/team-phantom/CF_SG_1rv.jpg",
+        "caption": "試作機"
+      },
+      {
+        "image": "image/projects/team-phantom/CF_transpearent_oled.jpg",
+        "caption": "透明有機ELディスプレイ"
+      }
+    ],
+    "source_kind": "team phantom"
+  },
+  {
+    "slug": "makunouchi-reheater",
+    "title": "幕ノ内・リヒーター",
+    "subtitle": "team phantom / iCAN 2022",
+    "date": "2022",
+    "category": "電子工作",
+    "summary": "温度を部屋ごとに設定できる弁当箱。",
+    "image": "image/projects/team-phantom/iCAN22_top.png",
+    "image_alt": "幕ノ内・リヒーターの制作写真",
+    "source": "iCAN22.html",
+    "source_title": "team phantom の制作記録",
+    "tags": [
+      "ESP32",
+      "温度制御",
+      "Android"
+    ],
+    "sections": [
+      {
+        "title": "冷たいお弁当を温めたい",
+        "text": "冷えた弁当を食べる経験から、電気で再加熱できる持ち運び用の弁当箱を製作しました。3つの部屋をそれぞれ温度制御し、食べたい時間に温めることを目指しました。 この作品は、team phantomでの企画から製作まで私が担当しました。"
+      },
+      {
+        "title": "弁当箱とスマートフォンをつなぐ",
+        "text": "ESP32、PTCヒーター、温度センサーを搭載し、Android Studioで製作したアプリから目標温度と加熱終了時間を設定します。GPSによる置き忘れ防止や、傾きを検知したメール通知にも取り組みました。"
+      },
+      {
+        "title": "試作と大会で分かったこと",
+        "text": "ヒーター用バッテリーの重さや、熱による筐体の歪みが課題でした。アプリは弁当箱と同じネットワークに接続する必要もありました。iCAN国内予選では入賞に至りませんでしたが、温度制御とアプリを組み合わせた試作を行いました。"
+      }
+    ],
+    "gallery": [
+      {
+        "image": "image/projects/team-phantom/iCAN22_top.png",
+        "caption": "弁当箱の外観"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN22_icon.jpg",
+        "caption": "製作したデバイス"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN22_app1.PNG",
+        "caption": "スマートフォンアプリ"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN22_sub.png",
+        "caption": "デバイスの構成"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN22_app2.PNG",
+        "caption": "アプリの操作画面"
+      }
+    ],
+    "source_kind": "team phantom"
+  },
+  {
+    "slug": "talking-shovel",
+    "title": "しゃべるシャベル",
+    "subtitle": "team phantom / iCAN 2020",
+    "date": "2020",
+    "category": "電子工作",
+    "summary": "災害復旧作業の負担と熱中症に向き合う。",
+    "image": "image/projects/team-phantom/iCAN20_top.jpg",
+    "image_alt": "しゃべるシャベルの制作写真",
+    "source": "iCAN20.html",
+    "source_title": "team phantom の制作記録",
+    "tags": [
+      "Raspberry Pi",
+      "センサー",
+      "音声通知"
+    ],
+    "sections": [
+      {
+        "title": "復旧作業中の二次災害を防ぎたい",
+        "text": "災害復旧の現場で熱中症になる人の報道をきっかけに、作業中の負担軽減を目指すシャベル型デバイスを製作しました。シャベルと身体に装着するデバイスを組み合わせ、作業者に声で情報を伝えます。 この作品は、team phantomでの企画から製作まで私が担当しました。"
+      },
+      {
+        "title": "握り方・姿勢・環境を計測",
+        "text": "11個のタッチセンサーで握る位置を検出し、測距センサーでシャベル先端の積載量を計測。装着側の角度センサーで姿勢を捉え、温湿度の報告や動きが止まった際の呼びかけも行います。応答がない場合はLINEへ通知する仕組みも組み込みました。"
+      },
+      {
+        "title": "二つの装置をつないだ結果",
+        "text": "2台のRaspberry Pi ZeroをBluetoothで接続し、音声にはOpen JTalk、通知にはIFTTTを利用しました。充電時に柄を分解する必要があることや、装着機器が動きを妨げることが課題でした。iCAN国内予選4位、世界大会Third Prizeという結果を得ました。"
+      }
+    ],
+    "gallery": [
+      {
+        "image": "image/projects/team-phantom/iCAN20_top.jpg",
+        "caption": "しゃべるシャベルの全体像"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN20_sub.jpg",
+        "caption": "装着型デバイス"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN20_distance.jpg",
+        "caption": "測距センサー"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN20_inside.png",
+        "caption": "シャベル内部の構成"
+      },
+      {
+        "image": "image/projects/team-phantom/iCAN20_LINE.png",
+        "caption": "通知画面"
+      }
+    ],
+    "source_kind": "team phantom"
   }
 ]

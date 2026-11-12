@@ -9,7 +9,12 @@
 │   ├── キャチロボ2026 /works/catchrobo-2026/
 │   ├── つくばチャレンジ2025 /works/tsukuba-2025/
 │   ├── キャチロボ2025 /works/catchrobo-2025/
-│   └── ゴルフロボット /works/golf-robot/
+│   ├── ゴルフロボット /works/golf-robot/
+│   ├── Phox /works/phox/
+│   ├── PENCULU /works/penculu/
+│   ├── 字幕生成スマートグラス /works/smart-glass/
+│   ├── 幕ノ内・リヒーター /works/makunouchi-reheater/
+│   └── しゃべるシャベル /works/talking-shovel/
 └── 仕事依頼 /contact/
 ```
 
@@ -43,3 +48,7 @@ python3 scripts/fetch_images.py
 元のJPEGは上書きせずに保管し、各制作物の詳細ページに「元の写真を見る」リンクを掲載しています。`data/projects.json` の `display_image` が掲載用の写真を指定します。この項目を削除して再ビルドすると元写真に戻せます。元のサメの写真は自己紹介に使用しています。
 
 連絡先はXのみです。アニメーションは端末の `prefers-reduced-motion` 設定に従います。JavaScriptを無効にしても、本文・ページ遷移・目次を利用できます。
+
+team phantom の5作品は、同フォルダの制作記録をもとに本文をまとめ、写真・図版を `image/projects/team-phantom/` に保存しています。制作物の並びは `data/projects.json` の新しい順です。年のみ確認できる作品は年だけを表示します。
+
+ロ技研ブログの4作品には、元記事に掲載された写真・図版を `image/projects/rogiken/` に保存し、各記事末尾に原記事へのリンクを掲載しています。

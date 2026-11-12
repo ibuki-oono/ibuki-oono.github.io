@@ -38,7 +38,7 @@ def fetch(project):
 
 
 def main():
-    projects = json.loads((ROOT / 'data/projects.json').read_text(encoding='utf-8'))
+    projects = [project for project in json.loads((ROOT / 'data/projects.json').read_text(encoding='utf-8')) if project['image'].startswith('https://')]
     results = [fetch(project) for project in projects]
     if any(results):
         subprocess.run([sys.executable, str(ROOT / 'scripts/build.py')], check=True)

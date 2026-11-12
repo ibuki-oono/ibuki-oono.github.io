@@ -57,7 +57,7 @@ def image_source(project, prefix='./', original=False):
     if edited:
         return url(edited if edited.startswith('https://') else prefix + edited)
     local = f'image/projects/{project["slug"]}.jpg'
-    return url(prefix + local if (ROOT / local).is_file() else project['image'])
+    return url(prefix + local if (ROOT / local).is_file() else (prefix + project['image'] if not project['image'].startswith('https://') else project['image']))
 
 
 def image(project, css='', eager=False, prefix='./', original=False):
@@ -86,11 +86,15 @@ home = '''
   <div class="hero-actions hero-enter enter-delay-3"><a class="button button-primary" href="./works/">制作物を見る <span aria-hidden="true">↗</span></a><a class="text-link" href="./about/">ibukiについて <span aria-hidden="true">↗</span></a></div>
 '''
 featured = PROJECTS[0]
-home += f'''<figure class="hero-photo reveal"><a class="hero-photo-link" href="./works/{featured['slug']}/" aria-label="{escape(featured['title'])}の詳細を見る" data-parallax>{image(featured, eager=True)}</a><figcaption><div><span class="hero-project-kicker">FEATURED PROJECT / {featured['date'][:4]}</span><strong>{escape(featured['title'])}</strong><span class="hero-project-subtitle">{escape(featured['subtitle'])}</span></div><a class="text-link" href="./works/{featured['slug']}/">詳しく見る <span aria-hidden="true">↗</span></a></figcaption></figure>'''
+home += f'''<figure class="hero-photo reveal"><div class="hero-photo-frame" data-parallax>{image(featured, eager=True)}</div></figure>'''
 home += '''
 </section>
+<section class="home-about container section-space reveal" aria-labelledby="home-about-title">
+  <div class="home-about-heading"><p class="eyebrow">ABOUT ME</p><h2 id="home-about-title">はじめまして、<br><span class="gradient-text">ibukiです。</span></h2></div>
+  <div class="home-about-copy"><p>ロボットに魅せられ、ものづくりを続けています。機械の設計から回路、制御まで、アイデアを実際に動くかたちにすることが好きです。</p><p>大会への挑戦や、日々の試作で得た発見を、この場所に残しています。</p><a class="text-link" href="./about/">自己紹介を見る <span aria-hidden="true">↗</span></a></div>
+</section>
 <section class="container section-space" id="selected" aria-labelledby="selected-title"><div class="section-intro reveal"><div><p class="eyebrow">SELECTED WORKS</p><h2 id="selected-title">アイデアを、かたちに。</h2></div><a class="text-link" href="./works/">すべての制作物 <span aria-hidden="true">↗</span></a></div><div class="project-grid">'''
-home += ''.join(card(p, './works/') for p in PROJECTS)
+home += ''.join(card(p, './works/') for p in PROJECTS[:6])
 home += '''</div></section>
 <section class="explore-section section-space" aria-labelledby="explore-title"><div class="container"><div class="section-intro reveal"><div><p class="eyebrow">EXPLORE</p><h2 id="explore-title">ここから、もう少し。</h2></div></div><div class="page-grid">
   <a class="page-card about-card reveal" href="./about/"><div class="card-top"><span class="card-kicker">01 / ABOUT</span><span class="circle-arrow" aria-hidden="true">↗</span></div><div class="card-copy"><h3>自己紹介</h3><p>ロボットに魅せられた、管理人のこと。</p></div></a>
@@ -108,7 +112,7 @@ about += next_page('../works/', 'NEXT / WORKS', 'つくったものを見る。'
 page('about/index.html', '自己紹介', 'ロボットに魅せられ、機構・回路・制御に取り組むibukiの自己紹介。', about, 'about', [('自己紹介', None)])
 
 works = heading('02 / WORKS', 'アイデアを、<br><span class="gradient-text">かたちに。</span>', 'つくったものと、その記録。')
-works += '<section class="container works-list" aria-labelledby="works-list-title"><div class="works-list-heading reveal"><h2 id="works-list-title">制作物一覧</h2><span>04 PROJECTS / 2025—2026</span></div><div class="project-grid">'
+works += f'<section class="container works-list" aria-labelledby="works-list-title"><div class="works-list-heading reveal"><h2 id="works-list-title">制作物一覧</h2><span>{len(PROJECTS):02d} PROJECTS / {PROJECTS[-1]["date"][:4]}—{PROJECTS[0]["date"][:4]}</span></div><div class="project-grid">'
 works += ''.join(card(p, './', asset_prefix='../') for p in PROJECTS)
 works += '</div></section>'
 works += next_page('../contact/', 'NEXT / LET’S TALK', '一緒につくる話を。')
@@ -123,16 +127,23 @@ page('contact/index.html', '仕事依頼', 'ibukiへの仕事依頼やご相談�
 for i, project in enumerate(PROJECTS):
     content = heading(f'WORKS / {project["date"].replace("-", ".")}', escape(project['title']), escape(project['summary']))
     content += f'<article class="project-detail container"><div class="detail-meta reveal"><span>{escape(project["subtitle"])}</span><div class="tags">' + ''.join(f'<span>{escape(tag)}</span>' for tag in project['tags']) + '</div></div>'
-    content += f'<figure class="detail-figure reveal">{image(project, eager=True, prefix="../../")}<figcaption>写真：<a href="{url(project["source"])}">ロボット技術研究会公式ブログ / 原記事 ↗</a><a class="original-photo-link" href="{image_source(project, "../../", original=True)}">元の写真を見る ↗</a></figcaption></figure>'
+    content += f'<figure class="detail-figure reveal">{image(project, eager=True, prefix="../../")}<figcaption>写真：{escape(project.get("source_kind", "ロボット技術研究会"))} の制作記録</figcaption></figure>'
     content += '<div class="article-layout"><nav class="article-toc reveal" aria-label="この記事の目次"><p class="eyebrow">ON THIS PAGE</p>'
     content += ''.join(f'<a href="#section-{j}">{escape(s["title"])}</a>' for j, s in enumerate(project['sections'], 1))
     content += '</nav><div class="article-body">'
     for j, section in enumerate(project['sections'], 1):
         content += f'<section id="section-{j}" class="article-section reveal"><span class="section-number">0{j}</span><h2>{escape(section["title"])}</h2><p>{escape(section["text"])}</p></section>'
-    content += f'<aside class="source-note reveal"><p class="eyebrow">MORE DETAILS</p><h2>もっと詳しい制作記録は。</h2><p>この記事は、ロ技研ブログの制作記録をもとにまとめています。</p><a class="text-link" href="{url(project["source"])}">{escape(project["source_title"])} <span aria-hidden="true">↗</span></a></aside></div></div></article>'
+    if project.get('gallery'):
+        content += '<section class="article-gallery reveal" aria-label="制作写真"><h2>制作の記録</h2><div class="gallery-grid">'
+        for photo in project['gallery']:
+            content += f'<figure><img src="{url("../../" + photo["image"])}" alt="{escape(photo["caption"], quote=True)}" loading="lazy" decoding="async"><figcaption>{escape(photo["caption"])}</figcaption></figure>'
+        content += '</div></section>'
+    if project.get('source', '').startswith('https://'):
+        content += f'<aside class="source-note reveal"><p class="eyebrow">SOURCE</p><h2>元の制作記録</h2><p>この記事はロボット技術研究会公式ブログの制作記録をもとにまとめています。</p><a class="text-link" href="{url(project["source"])}">{escape(project["source_title"])} <span aria-hidden="true">↗</span></a></aside>'
+    content += '</div></div></article>'
     content += '<div class="detail-bottom container reveal"><a class="text-link" href="../"><span aria-hidden="true">←</span> 制作物一覧に戻る</a>'
     following = PROJECTS[(i + 1) % len(PROJECTS)]
     content += f'<a class="text-link" href="../{following["slug"]}/">次の制作物 <span aria-hidden="true">→</span></a></div>'
     page(f'works/{project["slug"]}/index.html', project['title'], project['summary'], content, 'works', [('制作物', 'works/'), (project['title'], None)])
 
-print('Built 8 static pages.')
+print(f'Built {len(PROJECTS) + 4} static pages.')
